@@ -625,6 +625,7 @@ def clear_fields():
 	eAparelhoMarca.delete(0, END)
 	eAparelhoDefeito.delete(0, END)
 	eAparelhoPreco.delete(0, END)
+	eAparelho.delete(0,END)
 	#textObs.delete(0, END)
 	itemPronto.deselect()
 	itemDevolucao.deselect()	
@@ -648,6 +649,7 @@ def clear_fields():
 	itemEntregueGarantia.config(state=NORMAL)
 	itemEntregueGarantia.deselect()
 	eAparelho.config(state=NORMAL)
+	
 def disabled():
 	itemAutorizado.config(state='disabled')
 	
