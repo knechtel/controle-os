@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # controle-os
 
 
@@ -34,3 +35,6 @@ O modelo do banco de dados Ã© composto por Cliente, Equipamento, Ordem de ServiÃ
 
 Temos DTO's, DAO's Service e classe de controller.
 
+=======
+//test
+>>>>>>> origin/master

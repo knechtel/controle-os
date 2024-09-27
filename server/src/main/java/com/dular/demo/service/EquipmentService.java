@@ -45,9 +45,7 @@ public class EquipmentService {
 
         if (equipment.getCostValue() != null)
             equipmentEdit.setCostValue(equipment.getCostValue());
-//
-        if (equipment.getDefectForRepair() != null)
-            equipmentEdit.setDefectForRepair(equipment.getDefectForRepair());
+
         if (equipment.getDefectDefectForRepair() != null)
             equipmentEdit.setDefectDefectForRepair(equipment.getDefectDefectForRepair());
 //
