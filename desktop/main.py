@@ -109,7 +109,7 @@ def get_sate_pronto():
 
 def imprimir_os():
 	id = str(client_clone.id)
-	address = "http://localhost:8080/download?id="+id
+	address = "http://ec2-52-67-56-229.sa-east-1.compute.amazonaws.com:8080/download?id="+id
 	webbrowser.open(address)
 
 def novo_os():
@@ -178,7 +178,48 @@ def do_save():
 						entryName.config(bg="white")
 					messagebox.showwarning ('Aviso!', 'Campo preço com valor inválido!') 
 		else:
-			print("Sim lista vazia")
+			client = Client()
+			client.name = entryName.get()
+			client.cpf = eCPF.get()
+			client.telefone = eTelefone.get()
+			client.endereco = endereco.get()
+			client.email = eEmail.get()
+			
+			
+			equipment = Equipment()
+			equipment.serial = eAparelhoSerial.get()
+			equipment.model = eAparelhoModelo.get()
+			equipment.brand = eAparelhoMarca.get()
+			equipment.defectForRepair = eAparelhoDefeito.get()
+			equipment.obs = textObs.get("1.0",END)
+			equipment.description = eAparelho.get()
+			if(entryName.get()==''):
+				entryName.config(bg='yellow')
+				messagebox.showwarning ('Aviso!', 'É necessário ao menos o cadastro do nome do cliente!') 
+			id_client = client_create(client)
+			equipment.id_client = id_client
+			list_clients.insert(0,client)
+			equipment.price = float(eAparelhoPreco.get())
+			client.id = id_client
+			client_clone = 	client
+			listbox.insert(0,id_client)
+					
+			eAparelhoPreco.config(bg='white')
+			entryName.config(bg='white')
+			data = equipment_create(equipment)
+			equipment.id =data.get("id")
+			equipment.entryDate = data.get("entryDate")
+					
+			timestamp_millis = equipment.entryDate
+			timestamp_seconds = timestamp_millis / 1000
+			date = datetime.fromtimestamp(timestamp_seconds)
+			formatted_date = date.strftime("%d/%m/%Y")
+			data_entrada = str(formatted_date+"  -                          ")
+			dataEntrada.config(text = data_entrada)
+				
+			client_clone.list_equipments.append(equipment)
+			flag_novo = False
+			listbox.select_set(0)
 	else:
 		global aux_client
 		indices_selecionados = listbox.curselection()
@@ -649,7 +690,7 @@ def clear_fields():
 	itemEntregueGarantia.config(state=NORMAL)
 	itemEntregueGarantia.deselect()
 	eAparelho.config(state=NORMAL)
-	
+	eAparelho.delete(0,END)
 def disabled():
 	itemAutorizado.config(state='disabled')
 	
