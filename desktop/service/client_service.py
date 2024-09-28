@@ -10,7 +10,7 @@ def is_iterable(obj):
 
 def client_find_all():
     list_client = []
-    x = requests.get('http://localhost:8080/client-findAll')
+    x = requests.get('http://ec2-52-67-56-229.sa-east-1.compute.amazonaws.com:8080/client-findAll')
     data = x.json()
     
     for index in  data:
@@ -48,7 +48,7 @@ def client_find_all():
     return list_client
 
 def client_find_by_id(id):
-    url = 'http://localhost:8080/client-findById'
+    url = 'http://ec2-52-67-56-229.sa-east-1.compute.amazonaws.com:8080/client-findById'
     myobj = {'id': id}
     x = requests.post(url, json = myobj)
     data = x.json()
@@ -57,7 +57,7 @@ def client_find_by_id(id):
 #client_find_by_id(2)
 
 def client_update(client):
-    url = 'http://localhost:8080/client-update'
+    url = 'http://ec2-52-67-56-229.sa-east-1.compute.amazonaws.com:8080/client-update'
     myobj = {'id': client.id, 'name':client.name,
              'email':client.email,
              'cpf':client.cpf,
@@ -70,7 +70,7 @@ def client_update(client):
     return x
 
 def client_create(client):
-    url = 'http://localhost:8080/client-create'
+    url = 'http://ec2-52-67-56-229.sa-east-1.compute.amazonaws.com:8080/client-create'
     myobj = { 'name':client.name,
              'email':client.email,
              'cpf':client.cpf,
