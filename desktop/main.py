@@ -142,7 +142,7 @@ def do_save():
 			equipment.brand = eAparelhoMarca.get()
 			equipment.defectForRepair = eAparelhoDefeito.get()
 			equipment.obs = textObs.get("1.0",END)
-			equipment.description = eAparelho.get()
+			equipment.description = descricaoAparelho.get()
 			if(entryName.get()==''):
 				entryName.config(bg='yellow')
 				messagebox.showwarning ('Aviso!', 'É necessário ao menos o cadastro do nome do cliente!') 
