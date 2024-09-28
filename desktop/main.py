@@ -323,8 +323,8 @@ def do_save():
 				
 		if(0<len(client_clone.list_equipments)):
 			if(data.get("description")!=None):
-				eAparelho.delete(0,'end')
-				eAparelho.insert(0,client_clone.list_equipments[0].description)
+				descricaoAparelho.delete(0,'end')
+				descricaoAparelho.insert(0,client_clone.list_equipments[0].description)
 				#set garantia pronta e entregue
 		
 			
@@ -372,8 +372,8 @@ dataEntrada.grid(row=8,column=2)
 dataSaida = Label(master,text=str(data_saida))
 
 dataSaida.grid(row=9,column=2)
-eAparelho = Entry(master)
-eAparelho.grid(row=4,column=2)
+descricaoAparelho = Entry(master)
+descricaoAparelho.grid(row=4,column=2)
 #eAparelho.insert(0,"E6")
 
 
@@ -476,8 +476,8 @@ def set_equipment():
 			eAparelho.delete(0,'end')
 			print(client_clone.list_equipments[0].description)
 		else:
-			eAparelho.delete(0,'end')
-			eAparelho.insert(0,client_clone.list_equipments[0].description)
+			descricaoAparelho.delete(0,'end')
+			descricaoAparelho.insert(0,client_clone.list_equipments[0].description)
 
 	if( 0 < len(client_clone.list_equipments)):
 		eAparelhoPreco.delete(0,'end')
@@ -609,7 +609,7 @@ def set_equipment():
 			eEmail.config(state='normal')
 			endereco.config(state='normal')
 			eCPF.config(state='normal')
-			eAparelho.config(state='normal')
+			descricaoAparelho.config(state='normal')
 			eAparelhoModelo.config(state='normal')
 			eAparelhoSerial.config(state='normal')
 			eAparelhoMarca.config(state='normal')
@@ -666,7 +666,7 @@ def clear_fields():
 	eAparelhoMarca.delete(0, END)
 	eAparelhoDefeito.delete(0, END)
 	eAparelhoPreco.delete(0, END)
-	eAparelho.delete(0,END)
+	descricaoAparelho.delete(0,END)
 	#textObs.delete(0, END)
 	itemPronto.deselect()
 	itemDevolucao.deselect()	
@@ -689,8 +689,8 @@ def clear_fields():
 	itemGarantia1.config(state=NORMAL)
 	itemEntregueGarantia.config(state=NORMAL)
 	itemEntregueGarantia.deselect()
-	eAparelho.config(state=NORMAL)
-	eAparelho.delete(0,END)
+	descricaoAparelho.config(state=NORMAL)
+	descricaoAparelho.delete(0,END)
 def disabled():
 	itemAutorizado.config(state='disabled')
 	
@@ -702,7 +702,7 @@ def disabled():
 	eEmail.config(state='readonly')
 	endereco.config(state='readonly')
 	eCPF.config(state='readonly')
-	eAparelho.config(state='readonly')
+	descricaoAparelho.config(state='readonly')
 	eAparelhoModelo.config(state='readonly')
 	eAparelhoSerial.config(state='readonly')
 	eAparelhoMarca.config(state='readonly')
