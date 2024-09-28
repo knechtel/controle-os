@@ -1,17 +1,17 @@
 import requests
-
+Local ='http://ec2-52-67-56-229.sa-east-1.compute.amazonaws.com:8080'
 def equipment_find_by_id(id):
-    url = 'http://localhost:8080/equipment-findById'
+    url = Local+'/equipment-findById'
     myobj = {'id': id}
     x = requests.post(url, json = myobj)
     data = x.json()
     print(data)
     return data
-equipment_find_by_id(7)
+#equipment_find_by_id(7)
 
 def equipment_update(equipment):
     print("Entregue ",equipment.entregue)
-    url = 'http://localhost:8080/equipment-update'
+    url = Local+'/equipment-update'
     myobj = {'id': equipment.id,
              'brand':equipment.brand,
              'model':equipment.model,
@@ -34,7 +34,7 @@ def equipment_update(equipment):
 
 def equipment_create(equipment):
     print("brand = ",equipment.brand)
-    url = 'http://localhost:8080/equipment-create'
+    url = Local+'/equipment-create'
     myobj = {
              'brand':equipment.brand,
              'model':equipment.model,
