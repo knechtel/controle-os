@@ -473,7 +473,7 @@ def set_equipment():
 
 	if( 0 < len(client_clone.list_equipments)):
 		if(client_clone.list_equipments[0].description==None):
-			eAparelho.delete(0,'end')
+			descricaoAparelho.delete(0,'end')
 			print(client_clone.list_equipments[0].description)
 		else:
 			descricaoAparelho.delete(0,'end')
